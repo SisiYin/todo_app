@@ -1,6 +1,7 @@
 import { pool } from '../helpers/db.js'
 import { Router } from "express"
 import { emptyOrRows } from '../helpers/utils.js'
+import { auth } from '../helpers/auth.js'
 
 
 const router = Router()
@@ -21,7 +22,7 @@ router.post('/create', (req,res,next) => {
       if (error) {
         return next(error)
       }
-      return res.status(200).json({id: emptyOrRows(result)[0].id})
+      return res.status(200).json({id: result.rows[0].id})
     }
   )
 })
