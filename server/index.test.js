@@ -1,6 +1,8 @@
 import {initializeTestDb, insertTestUser,getToken} from './helpers/test.js'
 import { expect } from "chai"
 import fetch from 'node-fetch'
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 
@@ -65,6 +67,7 @@ describe('DELETE task',() => {
   const token = getToken(email)
 
   it('should delete a task',async() => {
+    
     const response = await fetch(base_url + '/delete/1',{
       method:'delete',
       headers: {
@@ -95,7 +98,9 @@ describe('DELETE task',() => {
 describe('POST register',() => {
   const email = 'register@foo.com'
   const password = 'register123'
+  
   it('should register with valid email and password',async() => {
+    
     const response = await fetch(base_url+'/user/register',{
       method: 'post',
       headers: {
@@ -111,9 +116,9 @@ describe('POST register',() => {
 })
 
 describe('POST login',() => {
-  const email = 'login@foo.com'
-  const password = 'login123'
-  insertTestUser(email,password)
+  const email = 'register@foo.com'
+  const password = 'register123'
+  // insertTestUser(email, password)
   
   it('should login with valid email and password',async() => {
     const response = await fetch(base_url+'/user/login',{
