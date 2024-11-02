@@ -1,8 +1,10 @@
 import fs from 'fs';
 import path from 'path'
 import { hash } from 'bcrypt'
-
 import { pool } from './db.js'
+
+import pkg from 'jsonwebtoken'; 
+const { sign } = pkg;
 
 const _dirname = import.meta.dirname
 

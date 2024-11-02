@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 const authorizationRequired = "Authorization required"
 const invalidCredentials = "Invalid credentials"
 
@@ -16,4 +18,4 @@ const auth = (req, res, next) => {
     }
   }
 };
- export {auth}
+ export {auth};
