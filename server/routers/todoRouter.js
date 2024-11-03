@@ -2,10 +2,12 @@ import { pool } from '../helpers/db.js'
 import { Router } from "express"
 import { emptyOrRows } from '../helpers/utils.js'
 import { auth } from '../helpers/auth.js'
+//import {getTasks,postTask} from '../controllers/TaskController.js'
 
 
 const router = Router()
 
+// router.get('/',getTasks)
 router.get('/',(req,res,next) => {
   pool.query('select * from task',(error, result) => {
     if (error) return next(error)
